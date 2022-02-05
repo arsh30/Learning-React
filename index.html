@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>first class react</title>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@17/umd/react.production.min.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"
+    ></script>
+  </head>
+  <body>
+    <div id="Mydiv">Hello React</div>
+    <script type="text/babel">
+        function Test() {
+            const bla = () => alert("test")
+            return <button onclick={bla}> click me</button>
+        }
+      class Hello extends React.Component {
+        render() {
+          return <div> Hello react with <Test/> </div>;
+        }
+      }
+      //how to connect with html  with id Mydiv -> it can be done through ReactDom.render()
+      ReactDOM.render(<Hello /> , document.getElementById("Mydiv"));
+    </script>
+  </body>
+</html>

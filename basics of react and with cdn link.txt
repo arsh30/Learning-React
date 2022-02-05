@@ -1,0 +1,86 @@
+                                CODE STEP BY STEP  
+
+WHAT IS REACTjs -> 
+
+1) ReactJs is a library 
+
+2) It is used to make single page applications means when we refresh the page, jo cursor move hota hua dikhta hai 
+    vo nhi hota isme, EG jisme cursor dikhta hai load hota hua eg pepcoding.com, nodejs.com 
+    single page application example youTube.com , Reactjs.com inme load hoya nhi dikhta 
+    so overall ReactJs is fast.
+
+QUES ->  WHY REACTJS IS FAST ?
+SOL -> 1) because it uses virtual DOM eg: 
+        we have a list in which we take 3 items coffee milk and tea, and if we want to update anything 
+        <ul>
+            <li>coffee</li>
+            <li>tea</li>
+            <li>Milk</li>
+        </ul> 
+        if we are doing update with the javascript, jquery -> so the whole script will be reload and and it take time
+        but when we are doing with virtual DOM, it only impact on the particular item that we want to update 
+        eg of virtualDom, update the tea -> so it only impact on the update product
+    
+        2)ReactJs uses virtualDom so it is basically fast
+    
+QUES -> WHY LEARN REACT ?
+SOL -> Maintained by Facebook, it is fast, Famous React app -> Netflix, whatsabb Web, Instagram etc 
+
+QUES -> PRE REQUISITES ?
+SOL -> HTML,CSS, JAVASCRIPT,ES6       
+
+=============================================================================================
+                                    START
+
+ REACT JS WITHOUT INSTALLATION
+
+  -> React is generally used with NPM PACKAGE [ALWAYS DO THIS WAY]
+  -> here we do this with the CDN Link 
+
+  LESS PREFER WAY [First do with cdn links so make HTML Page ]
+
+  eg: -> CODE -> 
+  <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>first class react</title>
+
+    //these three commands  connect react with the cdn link
+    <script
+      crossorigin
+      src="https://unpkg.com/react@17/umd/react.production.min.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"
+    ></script>
+  </head>
+
+  <body>
+    <div id="Mydiv">Hello React</div>
+    <script type="text/babel">
+        function Test() {
+            const bla = () => alert("test")
+            return <button onclick={bla}> click me</button>
+        }
+      class Hello extends React.Component {
+        render() {
+          return <div> Hello react with <Test/> </div>;
+        }
+      }
+
+      //how to connect with html  with id Mydiv -> it can be done through 
+      //ReactDom.render(jisko update krna hai,jisse update krna hai) -> it take 2 parameter
+      
+      ReactDOM.render(<Hello /> , document.getElementById("Mydiv"));
+    </script>
+  </body>
+</html>
+

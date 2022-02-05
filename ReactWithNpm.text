@@ -1,0 +1,250 @@
+Interview of questions -> 
+QUES1 -> Why use npm ?
+Sol1 -> 1) npm stands for node package manager -> it manage all the packages in the node module folder 
+ only we write is npm install PACKAGE_NAME
+
+        2) node modules shorts the code when we are building this, it provides security and unreadable
+        3) alternate of npm is " yarn " package manager by facebook
+
+============================================================
+1)  FIRST CODE IN REACT JS[AT 27.00 MIN]
+
+    * there are 2 import files in these 1st is index.js and app.js
+    * we start to write our code from app.js [remove the whole existing code]
+    * index.js is very important file issi me sab import hota hai finally App.js bhi  
+
+    HOW TO CREATE OUR FIRST FILE IN REACT JS
+    * make file 'User' make sure 1st name is in capital letter and import it in index.js
+
+index.js file -> 
+
+import all files which are used  in this after we write the functions
+
+     ReactDOM.render(
+  <React.StrictMode>
+    {/* <App /> */}
+
+    <User />  // **** jo bhi file bnate hai hm usko hm HTML tags ki trah use krte hai
+
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+
+User.js -> 
+
+function User() { make sure file name and function name same ho aur in capital letter ho file name
+  return (
+    <div className="App">
+      <h1> hello from User </h1>
+    </div>
+  );
+}
+
+export default User;
+
+Interview ques -> ques how to check the current version of our react ? sol) in package.json
+====================================================================
+2) REACT JS PROJECT FILE AND FOLDER STRUCTURE 
+    
+    * package.json vs package-lock.json
+       a) package.json -> it contains all the files which we are using in the PROJECT
+       b) package-lock.json -> it contains all the details of the package.json file like current version, 
+        resolved(means where we got this from),  integrity
+
+    B) SRC FOLDER IMPORTANT ->
+     1) app.css -> it contains css 
+     2) app.js -> we start our code from here
+     3) appTest.js -> in this developer write the test cases so they easily identify the bug from the cmmand 
+        which they write terminal
+     4) index.css -> main file for styling [jo bhi styling related file bnani hai idr se bnayege]
+     5) index.js -> very imp file and it is the entry point of our react code
+     6) svg -> it is image
+     7) reportwebvital -> it gives the report about the performance and it is embeeded in index.js
+     8) setup test.js -> setup of all the test case from here
+
+     C) PUBLIC FOLDER ->
+     1) favicon -> jo hme bhar se title pr logo dikhta from home page
+     2) index.js -> root id jidr likhi hoti hai vo react dhundta hai aur sari react usme put krdeta hai
+     3) manifest.json -> it stores all the icons, color theme
+
+Interview ques ->  hm nodemodules git pr upload nhi krte to agar kisi developer ne download krni ho to how he will do?
+sol) the size of node modules are very heavy so we dont upload this,
+    just write ->  npm install [so all files will be installed] agar kuch pehle ka install hoga to  
+    dubara vohi package nh dalega, vohi dalega jo install nhi hai
+
+==========================================================================================
+
+3)  PACKAGE.JSON File in details 
+
+    a)what is package.json?
+    sol)it is very important file. it stores all the detail of our project, name,version,libraries jo install krte 
+    hai voh isme aajata hai
+
+    b) how to add new npm package?
+    sol) write in terminal -> npm install PACKAGE_NAME
+
+    c) how to uninstall npm package?
+    sol) write in terminal -> npm uninstall PACKAGE_NAME
+
+    d) how to add custom command in package.json?
+    sol) example in package.json -> script -> "arsh":"react-script-start" -> then write in our terminal npm run arsh
+    to hmara code chl pdhega ["run" is neccessary to write]
+
+Interview ques -> how many types of component in react js ?
+
+===========================================================================================
+
+4) COMPONENT IN REACT JS ?
+
+    ques 1) what is component ?
+    sol 1) a part of element, eg: normally we say in this mobile the component are good like motherboard, cpu etc 
+    but in  React it is :
+              a) a piece of code that can Reuse
+              b)such as function
+              c) But more powerfull than function
+              d) Header Footer, sidebaar these are components, 1 component ko dusre page pr bhi lga skte hai means 
+              we can Reuse
+    
+    ques2 ) types of compoent ?
+    sol 2) basically 2 types  functional component and class component but there are few more component
+            like High order component, nested component, stateless component , etc.
+
+    ques3) example of making a component
+    sol3) make new file -> User.js [file name must be in caps letter and function name bhi file name se match hota hai]
+    ** we mostly used functional component
+
+    User.js FILE -> 
+
+    HERE WE MAKE A FUNCTIONAL COMPONENT
+
+    function User() { 
+  return ( //return likhna is must in function component
+    <div>  //jo bhi tags likhege agar vo more than one ho toh vo sab ik parent tag me honge
+      <h1> hello from User </h1>
+      <h2> Hellow i am from user</h2>
+    </div>
+  );
+}
+
+export default User;
+
+/*agar hm export default User nhi likhte to hme likhna hoga
+ export function User { } and jidr import krre hai udr hme likhna hoga import {function name} in 
+    '{ }' in baracket me function name and jab 1 hi file me multiple functions ho to export default nhi likhte 
+     {} tb hme iske andr hi likh kr import krna hoga, 
+
+     export default 1 hi function ho skta hai
+*/
+
+App.js FILE -> 
+function App() {
+  return (
+    <div className="App">
+      <h1> Hello react </h1>
+     <User></User>
+     {/* <User></User>  yeh component Reuse krre hai, ik hi file me bhi bna skte hai hm component in app.js
+     <User/> */}
+    </div>
+  );
+}
+
+Interview ques -> kya ik component ke andr ik hor component rakh skte hai? sol -> yes return se pehle
+==============================================================================================================
+
+5) CLASS COMPONENT -> install react extension -> npm install react-snippets
+
+    //CLASS COMPONENT -> USER.JS FILE -> 
+import React, { Component } from "react"; // and it is mandatory to import the react or write imr
+export default class User extends Component {
+  render() {
+    // in class component render is must to write
+    return (
+      <div>
+        <h1>Hello from user class component</h1>
+      </div>
+    );
+  }
+}
+
+APP.JS FILE -> 
+function App() {
+  return (
+    <div className="App">
+      <h1> Hello react </h1>
+      <User/> //IMPORT krke koi bhi component ko usko HTML tag ki trah use krte hai
+    </div>
+  );
+}
+FINISH CLASS COMPONENT
+=========
+
+//FUNCTIONAL COMPONENT -> HOW TO write
+
+ function User() { Functional compoent -> it is like normal function
+   return (
+     <div>
+       <h1> User Component </h1>
+     </div>
+   );
+ }
+
+=============================================================================================
+6) JSX '{}' WITH REACT  -> Javascript xml 
+ power of JSX -> a) we can write HTML, and javascript together
+                 b) use like a HTML Tag
+                 c) we can do calculations in JSX baracket
+
+function App() {
+  return (
+    <div className="App">
+      <h1> JSX! </h1>
+      <User/>
+    </div>
+  );
+}
+
+INTERVIEW QUES ->can we use the JSX without react
+
+===============================================================================================
+
+7) CLICK EVENT AND FUNCTION -> VERY IMP PART 
+function App() {
+  let data = "Arshdeep";
+  function apple() {
+    data = "arshdeep singh"; //idr data update krre hai h1 me kyo nhi hora hai??? so to overcome rom this
+    //state and props introduced
+    alert(data);
+  }
+  return (
+    <div className="App">
+      <h1> {data} </h1>  //upr se data ki value update hone ke baad idr kyo nhi aayi ?
+      {/* <button onClick={apple()}> click me!!</button>   */}
+      <button onClick={() => apple()}> click me!!</button>
+    </div>
+  );
+}
+//<button onClick={apple()}> click me!!</button>   when we pass the function like this () to yeh jo
+//automatically sabse pehele call hojega so to overcome from this hmko jo hai () yeh baracket hatane pdhege
+//  <button onClick={() => apple()}> click me!!</button> if we want to pass the function use Arrow function
+
+==================================================================================================
+8) STATE->  IN FUNCTIONAL COMPONENT [1:27 Min]
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
